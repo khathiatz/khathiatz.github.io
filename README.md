@@ -8,4 +8,4 @@ Everything is possible !
 <button class="button-37" role="button">Button 37</button>
 
 # PAGES LIST
-*   SHARED.
+*   [SHARED](/pages/test.html).
