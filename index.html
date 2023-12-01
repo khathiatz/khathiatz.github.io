@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 body, html {
   height: 100%;
   margin: 0;
 }
-
 .bg {
   /* The image used */
   background-image: url("pages/background.jpg");
@@ -20,13 +20,31 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>
 </head>
+
+
 <body>
 
+<div class="container">
+  <div class="centered">KHATHIATZ</div>
+</div>
+  
 <div class="bg"></div>
-
 <p>This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p>
 
 </body>
+
+
 </html>
