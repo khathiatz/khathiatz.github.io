@@ -53,7 +53,7 @@ hr {
     <hr>
     <p id="demo" style="font-size:30px"></p>
     <hr>
-    <p id="time_clock" style="font-size:30px"></p>
+    <p id="clock_time" style="font-size:30px"></p>
     <hr>
   </div>
   <div class="bottomleft">
@@ -97,7 +97,7 @@ var clock_run = setInterval(function() {
   var hours = now.getHours();
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
-  document.getElementById('time_clock').innerHTML =  hours + ":" + minutes + ":" + seconds;
+  document.getElementById('clock_time').innerHTML =  hours + ":" + minutes + ":" + seconds;
 }, 1000);
 
 </script>
