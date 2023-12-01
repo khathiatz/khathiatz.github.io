@@ -1,9 +1,6 @@
-<! Style by https://www.w3schools.com/howto/howto_css_coming_soon.asp >
-
 <!DOCTYPE html>
 <html>
-
-<STYLE>
+<style>
 body, html {
   height: 100%;
   margin: 0;
@@ -44,8 +41,7 @@ hr {
   margin: auto;
   width: 40%;
 }
-</STYLE>
-
+</style>
 <body>
 
 <div class="bgimg">
@@ -55,14 +51,14 @@ hr {
   <div class="middle">
     <h1>COMING SOON</h1>
     <hr>
-    <p>35 days left</p>
+    <p id="demo" style="font-size:30px"></p>
   </div>
   <div class="bottomleft">
     <p>Some text</p>
   </div>
 </div>
 
-<SCRIPT>
+<script>
 // Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
 
@@ -91,9 +87,7 @@ var countdownfunction = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
-</SCRIPT>
+</script>
 
 </body>
 </html>
-
-
