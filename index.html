@@ -92,14 +92,11 @@ var countdownfunction = setInterval(function() {
 }, 1000);
 
 
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('time_clock').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
+  var now = new Date()
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  document.getElementById('time_clock').innerHTML =  hours + ":" + minutes + ":" + seconds;
 
 
 </script>
