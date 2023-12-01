@@ -91,13 +91,14 @@ var countdownfunction = setInterval(function() {
   }
 }, 1000);
 
-
+// Update time every 1 second
+var clock_run = setInterval(function() {
   var now = new Date()
   var hours = now.getHours();
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
   document.getElementById('time_clock').innerHTML =  hours + ":" + minutes + ":" + seconds;
-
+}, 1000);
 
 </script>
 
