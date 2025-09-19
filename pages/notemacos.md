@@ -72,7 +72,17 @@ Với MacBook dùng chip Apple Silicon (M1, M2, M3), thiết lập biến môi t
 
 Kiểm tra lại việc cài đặt: ```brew --version```
 
+Một số app nên cài
 
+```brew install --cask evkey```
+
+```brew install --cask onedrive```
+
+```brew install --cask surfshark```
+
+```brew install --cask parsec```
+
+```brew install --cask parallels```
 
 ## Cài EVkey
 1. Tải https://evkeyvn.com
