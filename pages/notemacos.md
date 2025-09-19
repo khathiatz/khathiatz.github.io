@@ -45,19 +45,19 @@ File *.dmg là file nén, khi mở lên, kéo icon ứng dụng vào Application
 
 Spotlight Search (nhấn Command (⌘) + Spacebar) và gõ Terminal
 
-xcode-select --install
+```xcode-select --install```
 
 Một cửa sổ pop-up sẽ hiện ra. Bạn chỉ cần làm theo hướng dẫn trên màn hình để cài đặt.
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 
 Với MacBook dùng chip Apple Silicon (M1, M2, M3), thiết lập biến môi trường (PATH) giúp bạn có thể sử dụng lệnh brew từ bất kỳ thư mục nào:
 
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+```(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile```
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+```eval "$(/opt/homebrew/bin/brew shellenv)"```
 
-Kiểm tra lại việc cài đặt: brew --version
+Kiểm tra lại việc cài đặt: ```brew --version```
 
 
 
