@@ -1,5 +1,8 @@
 # Trải nghiệm MacOS 15.6
 
+## Định nghĩa
+File *.dmg là file nén, khi mở lên, kéo icon ứng dụng vào Application tức là cài app
+
 ## Thao tác
 ### Phím tắt
 Phím Command (⌘) là "chìa khóa" chính trên macOS, tương tự như phím Control (Ctrl) trên Windows.
@@ -36,9 +39,19 @@ Vuốt 4 ngón vào > App list
 1. Bấm nhẹ: Tap to click > ON
 2. Natural scrolling > OFF
 
+### Kéo thả bằng 3 ngón tay (không dùng lực)
+
+1. Mở System Settings (Cài đặt hệ thống).
+2. Chọn Accessibility (Trợ năng) ở thanh bên trái.
+3. Chọn Pointer Control (Điều khiển con trỏ) ở phía bên phải.
+4. Nhấn vào nút Trackpad Options... (Tùy chọn Bàn di chuột...).
+5. Bật tùy chọn Use trackpad for dragging (Sử dụng bàn di chuột để kéo).
+6. Trong menu thả xuống bên cạnh Dragging style (Kiểu kéo), chọn Three Finger Drag (Kéo bằng ba ngón tay).
+7. Nhấn OK để lưu lại.
+
 ### Thao tác khác
 
-File *.dmg là file nén, khi mở lên, kéo icon ứng dụng vào Application tức là cài app
+
 
 
 ## Cài Homebrew (chạy code)
