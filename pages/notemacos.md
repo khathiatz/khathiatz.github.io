@@ -16,9 +16,17 @@ Command (⌘) + Shift + 4: Chụp một vùng màn hình tùy chọn.
 Vuốt 4 ngón ra > Desktop
 Vuốt 4 ngón vào > App list
 
-## Chỉnh Trackpad
+### Chỉnh Trackpad
 Bấm nhẹ: Tap to click > ON
 Natural scrolling > OFF
+
+## Cài EVkey
+1. Tải https://evkeyvn.com
+2. Setting > Privacy & Security > trong phần Security bấm "Open Anyway" EVKey (cho phép EVKey chạy)
+3. Cấp quyền bàn phím: Setting > Privacy & Security > Accessibility > bật EVKey
+4. Sau khi EVKey chạy, chọn thiết lập từ icon góc phải
+
+
 
 
 ## Kiểm tra máy mới mua
