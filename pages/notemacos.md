@@ -3,22 +3,45 @@
 ## Thao tác
 ### Phím tắt
 Phím Command (⌘) là "chìa khóa" chính trên macOS, tương tự như phím Control (Ctrl) trên Windows.
+
 Command (⌘) + C / V / X: Sao chép / Dán / Cắt.
+
 Command (⌘) + A: Chọn tất cả.
+
 Command (⌘) + Z: Hoàn tác (Undo).
+
 Command (⌘) + Q: Thoát hẳn ứng dụng đang mở. Đây là phím tắt bạn nên ghi nhớ để không chỉ đóng cửa sổ mà còn tắt ứng dụng hoàn toàn.
+
 Command (⌘) + Option + Esc: Buộc thoát ứng dụng (Force Quit), hữu ích khi một ứng dụng bị treo.
+
 Command (⌘) + W: Đóng cửa sổ đang mở, nhưng ứng dụng vẫn chạy ngầm.
+
 Command (⌘) + Space (phím cách): Mở Spotlight Search, công cụ tìm kiếm nhanh bất kỳ file, ứng dụng hoặc thông tin nào trên máy.
+
 Command (⌘) + Tab: Chuyển đổi qua lại giữa các ứng dụng đang mở.
+
 Command (⌘) + Shift + 3: Chụp toàn bộ màn hình.
+
 Command (⌘) + Shift + 4: Chụp một vùng màn hình tùy chọn.
+
+Command (⌘) + Option (⌥) + Delete: xóa vĩnh viễn file
+
+Command (⌘) + Delete: bỏ thùng rác
+
 Vuốt 4 ngón ra > Desktop
+
 Vuốt 4 ngón vào > App list
 
 ### Chỉnh Trackpad
-Bấm nhẹ: Tap to click > ON
-Natural scrolling > OFF
+1. Bấm nhẹ: Tap to click > ON
+2. Natural scrolling > OFF
+
+### Thao tác khác
+
+File *.dmg là file nén, khi mở lên, kéo icon ứng dụng vào Application tức là cài app
+
+
+
 
 ## Cài EVkey
 1. Tải https://evkeyvn.com
