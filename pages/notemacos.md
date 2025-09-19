@@ -4,6 +4,9 @@
 File *.dmg là file nén, khi mở lên, kéo icon ứng dụng vào Application tức là cài app
 
 ## Thao tác
+Xài xong gập máy lại là xong.
+
+
 ### Phím tắt
 Phím Command (⌘) là "chìa khóa" chính trên macOS, tương tự như phím Control (Ctrl) trên Windows.
 
