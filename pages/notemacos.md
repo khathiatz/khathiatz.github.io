@@ -91,7 +91,9 @@ Một số app nên cài
 
 ```brew install --cask vlc```
 
-## Cài EVkey
+```brew install --cask istat-menus``` (giống TaskManager, hiện ở thanh menu) 
+
+### Cài EVkey
 1. Tải https://evkeyvn.com
 2. Setting > Privacy & Security > trong phần Security bấm "Open Anyway" EVKey (cho phép EVKey chạy)
 3. Cấp quyền bàn phím: Setting > Privacy & Security > Accessibility > bật EVKey
