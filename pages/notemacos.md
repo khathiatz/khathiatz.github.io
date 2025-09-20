@@ -89,6 +89,7 @@ Một số app nên cài
 
 ```brew install --cask rectangle``` (phím tắt chia cửa số như trên Windows)
 
+```brew install --cask vlc```
 
 ## Cài EVkey
 1. Tải https://evkeyvn.com
