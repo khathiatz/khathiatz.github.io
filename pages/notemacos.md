@@ -95,6 +95,8 @@ Một số app nên cài
 
 ```brew install --cask Karabiner-Elements``` (thêm phím tắt)
 
+```brew install --cask motrix``` (quản lý download) 
+
 ### Cài EVkey
 1. Tải https://evkeyvn.com
 2. Setting > Privacy & Security > trong phần Security bấm "Open Anyway" EVKey (cho phép EVKey chạy)
