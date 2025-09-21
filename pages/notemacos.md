@@ -91,7 +91,9 @@ Một số app nên cài
 
 ```brew install --cask vlc```
 
-```brew install --cask istat-menus``` (giống TaskManager, hiện ở thanh menu) 
+```brew install --cask istat-menus``` (giống TaskManager, hiện ở thanh menu)
+
+```brew install --cask Karabiner-Elements``` (thêm phím tắt)
 
 ### Cài EVkey
 1. Tải https://evkeyvn.com
