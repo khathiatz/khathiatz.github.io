@@ -19,9 +19,12 @@
 [<img src="https://favicon.vemetric.com/x.com?size=48?format=png" width="48" style="vertical-align: middle;">](https://x.com/settings/sessions) [X session](https://x.com/settings/sessions)  
 
   
-<iframe style="border: 0; width: 100%; height: 450px;" allowfullscreen frameborder="0" src="https://raindrop.io/thinkrdp/emergency-service-47344773/embed/sort=title"></iframe>  
+<iframe style="border: 0; width: 100%; height: 200px;" allowfullscreen frameborder="0" src="https://raindrop.io/thinkrdp/emergency-service-47344773/embed/sort=title"></iframe>  
   
-  
+## Check anonymous  
+
+[<img src="https://favicon.vemetric.com/amiunique.org?size=48?format=png" width="48" style="vertical-align: middle;">](https://amiunique.org/) [Am I Unique - fingerprinting check](https://amiunique.org/)  
+
   
   
 [✎](https://github.com/khathiatz/khathiatz.github.io/blob/master/pages/emergency.md)  
