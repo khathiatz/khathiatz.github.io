@@ -29,10 +29,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-bottom: 80px; /* Tạo khoảng trống dưới cùng để tránh bị credit đè */
+            padding-bottom: 80px;
         }
 
-        /* Overlay tối nhẹ */
         body::before {
             content: '';
             position: absolute;
@@ -87,7 +86,7 @@
             gap: 30px;
             max-width: 900px;
             width: 90%;
-            margin-top: 20px; /* Giảm khoảng cách từ trên xuống, giúp bookmark lên cao hơn */
+            margin-top: 20px;
         }
 
         .bookmark {
@@ -105,24 +104,25 @@
             transform: translateY(-5px);
         }
 
+        /* Icon mới: favicon tràn đầy ô, không nền mờ */
         .icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            width: 64px;
+            height: 64px;
             border-radius: 20px;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: transparent; /* Không nền mờ nữa */
         }
 
         .icon img {
-            width: 48px;
-            height: 48px;
+            width: 100%;   /* Quan trọng: favicon tràn đầy */
+            height: 100%;
+            object-fit: cover;  /* Đảm bảo lấp đầy, giữ tỷ lệ */
+            border-radius: 20px;
         }
 
         .title {
@@ -130,11 +130,10 @@
             font-weight: 500;
         }
 
-        /* Credit sát góc trái dưới */
         .credit {
             position: absolute;
-            bottom: 15px;   /* Rất sát đáy */
-            left: 20px;     /* Rất sát trái */
+            bottom: 15px;
+            left: 20px;
             z-index: 1;
             font-size: 0.9rem;
             opacity: 0.7;
@@ -179,12 +178,12 @@
 
         <div class="secondary-clocks">
             <div>
-                <div class="secondary-clock" id="utc-5-time">00:00</div>
-                <div class="secondary-label">EST UTC-5</div>
-            </div>
-            <div>
                 <div class="secondary-clock" id="utc-8-time">00:00</div>
                 <div class="secondary-label">PST UTC-8</div>
+            </div>
+            <div>
+                <div class="secondary-clock" id="utc-5-time">00:00</div>
+                <div class="secondary-label">EST UTC-5</div>
             </div>
         </div>
     </div>
