@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonjourr Clone</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+    :root {
+      --font-size: 14.9px;
+      --text-shadow: 0.2;
+      --bright: 0.65;
+      --blur: 0px;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: var(--font-size);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      text-shadow: 0 0 calc(10px * var(--text-shadow)) rgba(0,0,0,0.8);
+    }
+
+    #bg {
+      position: fixed;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(var(--blur)) brightness(var(--bright));
+      transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+      opacity: 0;
+      z-index: -2;
+    }
+
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.05);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    #time {
+      font-size: calc(8rem + 2vw);
+      font-weight: 300;
+    }
+
+    #worldclocks {
+      font-size: 1.8rem;
+      opacity: 0.9;
+    }
+
+    #worldclocks div {
+      margin: 0.5rem;
+    }
+
+    #main {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #notes {
+      width: 40ch;
+      max-width: 90%;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: left;
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+      align-self: flex-start;
+    }
+
+    #searchbar {
+      width: 42ch;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    #searchbar form {
+      position: relative;
+    }
+
+    #searchbar input {
+      width: 100%;
+      padding: 1rem 2.5rem 1rem 1.5rem;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 3rem;
+      color: white;
+      outline: none;
+    }
+
+    #searchbar input::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    #searchbar button {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    #quicklinks {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+
+    .link-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.15);
+      border-radius: calc(80px * 1.1);
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .link-title {
+      font-size: 0.9rem;
+    }
+
+    #quotes {
+      max-width: 60ch;
+      margin: 0 auto;
+      font-size: 1.4rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    #quotes-author {
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    #weather {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="bg"></div>
+  <div id="overlay"></div>
+
+  <div id="weather"></div>
+
+  <main>
+    <div id="time"></div>
+    <div id="worldclocks"></div>
+
+    <section id="main">
+      <div id="notes"></div>
+
+      <div id="searchbar">
+        <form action="https://search.brave.com/search" target="_self">
+          <input type="text" name="q" placeholder="Search" autocomplete="off">
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+
+      <div id="quicklinks"></div>
+
+      <div id="quotes"></div>
+    </section>
+  </main>
+
+  <script>
+    // Notes
+    document.getElementById('notes').textContent = `Được cũng tốt đẹp mà không được cũng tốt đẹp
+
+≋ ᘛ⁐̤ᕐᐷ ≏ ⌅ 🌴 𝕏 ϋ 
+
+Lãi suất giảm > chu kỳ phải triển kinh doanh > lãi suất tăng > chu kỳ nộp lại tài sản`;
+
+    // Quick links
+    const links = [
+      { title: "X", url: "https://x.com", icon: "https://x.com/favicon.ico" },
+      { title: "TickTick", url: "https://ticktick.com/webapp/#q/all/week", icon: "https://d107mjio2rjf74.cloudfront.net/web/static/img/apple-touch-icon-152x152.png" },
+      { title: "Raindrop", url: "https://app.raindrop.io/my/0", icon: "https://app.raindrop.io/favicon.ico" }
+    ];
+
+    const ql = document.getElementById('quicklinks');
+    links.forEach(l => {
+      const a = document.createElement('a');
+      a.href = l.url;
+      a.className = 'link';
+      a.innerHTML = `
+        <div class="link-icon" style="background-image:url(${l.icon})"></div>
+        <div class="link-title">${l.title}</div>
+      `;
+      ql.appendChild(a);
+    });
+
+    // Quotes
+    const quotes = [
+      "... Điều thú vị của đọc sách là khi bạn ngộ ra được điều gì đó",
+      "... Suy nghĩ tạo nên hành động. Hành động tạo nên thói quen. Thói quen tạo nên tính cách. Tính cách tạo nên số phận.",
+      "... Tắt chế độ autopilot và tự điều kiển cuộc đời mình, đó là tỉnh thức.",
+      "Lê Thẩm Dương Là tình yêu đích thực thì giữa hai người phải có sự hâm mộ về thể xác, tri thức và tâm hồn",
+      "Trích Chủ nghĩa Khắc kỷ Mọi thứ chúng ta có đều vay mượn từ cuộc đời, nó có thể lấy lại mà không cần sự cho phép của chúng ta",
+      "Trích Chủ nghĩa Khắc kỷ Nghĩ về cái chết của chính mình, bạn sẽ không còn sợ và sống vui vẻ hơn",
+      "Trích Anna Karenina của Tolstoy Các gia đình hạnh phúc đều giống nhau, mỗi gia đình bất hạnh đều bất hạnh theo một cách riêng",
+      "04/7/1776 Ngày Độc lập là một ngày lễ liên bang Hoa Kỳ để kỷ niệm Tuyên ngôn Độc lập được ký."
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quotes').innerHTML = `"${randomQuote}"<div id="quotes-author"></div>`;
+
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('time').textContent = now.toLocaleTimeString('vi-VN', {hour: '2-digit', minute: '2-digit'});
+
+      // World clocks
+      document.getElementById('worldclocks').innerHTML = `
+        <div>Bangkok: ${new Date().toLocaleTimeString('vi-VN', {timeZone: 'Asia/Bangkok', hour: '2-digit', minute: '2-digit'})}</div>
+        <div>Detroit: ${new Date().toLocaleTimeString('vi-VN', {timeZone: 'America/Detroit', hour: '2-digit', minute: '2-digit'})}</div>
+      `;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Weather (Open-Meteo free, no key)
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=10.25&longitude=106.37&current=temperature_2m,apparent_temperature,weather_code&timezone=Asia%2FBangkok')
+      .then(r => r.json())
+      .then(data => {
+        const temp = data.current.apparent_temperature;
+        const code = data.current.weather_code;
+        const icons = {0:"☀️",1:"☀️",2:"⛅",3:"☁️",45:"🌫",61:"🌧",80:"🌧",95:"⛈"};
+        const icon = icons[code] || "☁️";
+        document.getElementById('weather').innerHTML = `${icon} ${Math.round(temp)}°C`;
+      });
+
+    // Background Unsplash Daylight collections
+    const collections = {
+      night: 'bonjourr-backgrounds-night', // fallback nếu không có exact ID
+      evening: '3M2rKTckZaQ', // evening
+      day: 'o8uX55RbBPs', // day
+      noon: 'GD4aOSg4yQE', // morning/noon
+      morning: 'GD4aOSg4yQE'
+    };
+
+    function getTimeOfDay() {
+      const hour = new Date().getHours();
+      if (hour >= 4 && hour < 8) return 'morning';
+      if (hour >= 8 && hour < 16) return 'day';
+      if (hour >= 16 && hour < 20) return 'evening';
+      return 'night';
+    }
+
+    async function setBackground() {
+      const tod = getTimeOfDay();
+      let coll = collections[tod] || 'o8uX55RbBPs';
+      const url = `https://api.unsplash.com/photos/random?collections=${coll}&orientation=landscape&client_id=YOUR_UNSPLASH_ACCESS_KEY_IF_LIMITED`;
+      // Nếu rate limit, fallback static hoặc dùng proxy. Hiện tại dùng direct source
+      // Unsplash cho phép limited calls không key, nhưng tốt nhất đăng ký free access key tại unsplash.com/developers
+      // Để đơn giản, dùng collection day làm default dynamic
+      fetch(`https://source.unsplash.com/collection/${coll}/1920x1080`)
+        .then(() => {
+          document.getElementById('bg').style.backgroundImage = `ur[](https://source.unsplash.com/collection/${coll}/1920x1080?${Date.now()})`;
+          document.getElementById('bg').style.opacity = 1;
+        });
+    }
+
+    setBackground();
+    // Thay đổi mỗi tab mới (frequency: tabs)
+  </script>
+</body>
+</html>
