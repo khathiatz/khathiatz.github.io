@@ -1,135 +1,268 @@
 <!DOCTYPE html>
-<html>
-<title>khathiatz</title>
-<link rel="icon" type="image/x-icon" href="https://khathiatz.github.io/assets/favicon.ico">
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>khathiatz</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/khathiatz/khathiatz.github.io/master/assets/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=System+UI:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-<!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-.bgimg {
-  background-image: url('/assets/background.jpg');
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 25px;
-}
+        body {
+            background: url('https://raw.githubusercontent.com/khathiatz/khathiatz.github.io/master/assets/background.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 80px; /* Tạo khoảng trống dưới cùng để tránh bị credit đè */
+        }
 
-.topleft {
-  position: absolute;
-  top: 0;
-  left: 16px;
-}
+        /* Overlay tối nhẹ */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.15);
+            pointer-events: none;
+        }
 
-.bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-}
+        .clocks {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 60px;
+        }
 
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+        .clock {
+            font-size: 7rem;
+            font-weight: 100;
+            letter-spacing: -0.05em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
 
-hr {
-  margin: auto;
-  width: 40%;
-}
+        .clock-label {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
 
-/* Link */
-a:link {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: white;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:active {
-  color: while;
-  background-color: transparent;
-  text-decoration: underline;
-}
+        .secondary-clocks {
+            display: flex;
+            gap: 100px;
+            margin-top: 20px;
+        }
 
-/* Nút bấm */
-/* Style buttons */
-.btn {
-  background-color: DodgerBlue; /* Blue background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
-  font-size: 20px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
-}
+        .secondary-clock {
+            font-size: 2.5rem;
+            font-weight: 200;
+        }
 
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
-} 
-</style>
+        .secondary-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
 
+        .bookmarks {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            width: 90%;
+            margin-top: 20px; /* Giảm khoảng cách từ trên xuống, giúp bookmark lên cao hơn */
+        }
 
-<!-- BODY ====================================================================== -->
+        .bookmark {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            opacity: 0.9;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .bookmark:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .icon img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .title {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Credit sát góc trái dưới */
+        .credit {
+            position: absolute;
+            bottom: 15px;   /* Rất sát đáy */
+            left: 20px;     /* Rất sát trái */
+            z-index: 1;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .credit:hover {
+            opacity: 1;
+        }
+
+        .credit a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .credit a:hover {
+            border-bottom-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .clock { font-size: 5rem; }
+            .secondary-clocks { flex-direction: column; gap: 30px; }
+            .bookmarks { 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 25px;
+                margin-top: 10px;
+            }
+            body { padding-bottom: 70px; }
+            .credit { 
+                left: 15px; 
+                bottom: 10px; 
+                font-size: 0.85rem; 
+            }
+        }
+    </style>
+</head>
 <body>
+    <div class="clocks">
+        <div class="clock" id="local-time">00:00</div>
+        <div class="clock-label">Giờ địa phương</div>
 
-<div class="bgimg">
-  <div class="topleft">
-    <p><img src="assets/logo.png" width="32"/></p>
-  </div>
-  <div class="middle">
-    <h1>ATZ</h1>
-    <hr>
-    <p <button class="btn" onclick="window.location.href='https://khathiatz.github.io/readme';"><i class="fa fa-home"></i> Home</button></p>
-    <hr>
-    <p <button class="btn" onclick="window.location.href='https://1drv.ms/f/s!Ar4pAPafzzHKhdBRmlZmcHzUnX-g5g?e=9a5F9i';"><i class="fa fa-cloud"></i> Z-ATZ Public Shared</button></p>
-    <p <button class="btn" onclick="window.location.href='https://u.pcloud.link/publink/show?code=kZi8Hs0ZdpmUCeTkctF6Ye4g91GAV50h7yr7';"><i class="fa fa-cloud"></i> Public Shared</button></p>
-    <p <button class="btn" onclick="window.location.href='https://u.pcloud.link/publink/show?code=kZ1mHs0Z8q5BaSqt13kuTSKEu6pu6zAO19YV';"><i class="fa fa-hdd-o"></i> Software - pCloud</button></p>
-    <hr>
-    
-    <!--
-    <button type="button" class="image-btn">
-      <img src="/pages/logo.png" width="100">
-  	  </button>
-    <button type="button" class="image-btn">
-      <img src="/pages/logo.png" width="100">
-  	  </button>
-    -->
-    
-  </div>
-  <div class="bottomleft">
-    <p style="font-size:10px"><a href="https://github.com/khathiatz/khathiatz.github.io" target="_blank" rel="noopener noreferrer">Project</a>. 
-      <a href="https://www.w3schools.com/howto/howto_css_coming_soon.asp" target="_blank" rel="noopener noreferrer">Theme</a>. 
-      <a href="https://raindrop.io/thinkrdp/" target="_blank" rel="noopener noreferrer">Link</a>.    
-    </p>
-  </div>
-</div>
+        <div class="secondary-clocks">
+            <div>
+                <div class="secondary-clock" id="utc-5-time">00:00</div>
+                <div class="secondary-label">EST UTC-5</div>
+            </div>
+            <div>
+                <div class="secondary-clock" id="utc-8-time">00:00</div>
+                <div class="secondary-label">PST UTC-8</div>
+            </div>
+        </div>
+    </div>
 
+    <div class="bookmarks">
+        <a href="https://google.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=google.com" alt="Google"></div>
+            <span class="title">Google</span>
+        </a>
+        <a href="https://youtube.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=youtube.com" alt="YouTube"></div>
+            <span class="title">YouTube</span>
+        </a>
+        <a href="https://gmail.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=gmail.com" alt="Gmail"></div>
+            <span class="title">Gmail</span>
+        </a>
+        <a href="https://github.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=github.com" alt="GitHub"></div>
+            <span class="title">GitHub</span>
+        </a>
+        <a href="https://x.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=x.com" alt="X"></div>
+            <span class="title">X</span>
+        </a>
 
-<!-- SCRIPT ====================================================================== -->
-<script>
+        <a href="https://reddit.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=reddit.com" alt="Reddit"></div>
+            <span class="title">Reddit</span>
+        </a>
+        <a href="https://chat.openai.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=chat.openai.com" alt="ChatGPT"></div>
+            <span class="title">ChatGPT</span>
+        </a>
+        <a href="https://drive.google.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=drive.google.com" alt="Drive"></div>
+            <span class="title">Drive</span>
+        </a>
+        <a href="https://maps.google.com" class="bookmark">
+            <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=maps.google.com" alt="Maps"></div>
+            <span class="title">Maps</span>
+        </a>
+        <a href="https://khathiatz.github.io" class="bookmark">
+            <div class="icon"><img src="https://raw.githubusercontent.com/khathiatz/khathiatz.github.io/master/assets/logo.png" alt="khathiatz"></div>
+            <span class="title">khathiatz</span>
+        </a>
+    </div>
 
-</script>
+    <div class="credit">
+        made by <a href="https://www.google.com" target="_blank">me</a>
+    </div>
 
+    <script>
+        function updateLocalClock() {
+            const element = document.getElementById('local-time');
+            setInterval(() => {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                element.textContent = `${hours}:${minutes}`;
+            }, 1000);
+        }
 
+        function updateUtcClock(id, offsetHours) {
+            const element = document.getElementById(id);
+            setInterval(() => {
+                const now = new Date();
+                const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+                const time = new Date(utc + (3600000 * offsetHours));
+                const hours = time.getHours().toString().padStart(2, '0');
+                const minutes = time.getMinutes().toString().padStart(2, '0');
+                element.textContent = `${hours}:${minutes}`;
+            }, 1000);
+        }
+
+        updateLocalClock();
+        updateUtcClock('utc-5-time', -5);
+        updateUtcClock('utc-8-time', -8);
+    </script>
 </body>
 </html>
