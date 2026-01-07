@@ -255,13 +255,15 @@
             }, 1000);
         }
 
-        updateLocalClock();
+        /* updateLocalClock(); */
+        updateUtcClock('local-time', +7);
         updateUtcClock('utc-5-time', -5);
         updateUtcClock('utc-8-time', -8);
     </script>
 </body>
 
 </html>
+
 
 
 
